@@ -15,6 +15,10 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
     ImageView imgEmployee;
     TextView txtEmployee;
+    ImageView imgCustomer;
+    TextView txtCustomer;
+    ImageView imgCategory;
+    TextView txtCategory;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,13 +35,28 @@ public class MainActivity extends AppCompatActivity {
 
     private void addView() {
         imgEmployee=findViewById(R.id.imgEmployee);
-        txtEmployee=findViewById(R.id.txtEmployee);
+        txtEmployee=findViewById(R.id.txtCustomer);
+        imgCustomer=findViewById(R.id.imgCustomer);
+        txtCustomer=findViewById(R.id.txtCustomer);
     }
 
     public void open_employee_management(View view) {
         Intent intent= new Intent(MainActivity.this, EmployeeManagementActivity.class);;
         startActivity(intent);
     }
+    public void open_customer_management(View view) {
+        Intent intent= new Intent(MainActivity.this, CustomerManagementActivity.class);;
+        startActivity(intent);
+    }
+    public void open_category_management(View view) {
+        Intent intent= new Intent(MainActivity.this, CategoryManagementActivity.class);;
+        startActivity(intent);
+    }
+    public void open_product_management(View view) {
+        Intent intent= new Intent(MainActivity.this, ProductManagementActivity.class);;
+        startActivity(intent);
+    }
+
 //    private void addEvents(){
 //        imgEmployee.setOnClickListener(new View.OnClickListener() {
 //            @Override
