@@ -21,28 +21,28 @@ public class ListProduct implements Serializable {
         products.add(p);
     }
 
-    public void generate_sample_dataset(ArrayList<Category> categories) {
-        for (int i = 1; i <= 50; i++) {
-            // Random category
-            int randomIndex = (int) (Math.random() * categories.size());
-            Category randomCategory = categories.get(randomIndex);
-
-            // Random quantity: 0 to 100
-            int quantity = (int) (Math.random() * 101);
-
-            // Random price: 5.0 to 100.0
-            double price = 5.0 + (Math.random() * (100.0 - 5.0));
-
-            Product p = new Product(
-                    i,                              // id
-                    "Product " + i,                 // name
-                    quantity,                       // quantity
-                    Math.round(price * 100.0) / 100.0, // làm tròn 2 chữ số sau dấu phẩy
-                    randomCategory.getId(),         // cate_id
-                    "Description for product " + i  // description
-            );
-
-            addProduct(p);
-        }
-    }
+//    public void generate_sample_dataset(ArrayList<Category> categories) {
+//        for (int i = 1; i <= 50; i++) {
+//            // Random category
+//            int randomIndex = (int) (Math.random() * categories.size());
+//            Category randomCategory = categories.get(randomIndex);
+//
+//            // Random quantity: 0 to 100
+//            int quantity = (int) (Math.random() * 101);
+//
+//            // Random price: 5.0 to 100.0
+//            double price = 5.0 + (Math.random() * (100.0 - 5.0));
+//
+//            Product p = new Product(
+//                    i,                              // id
+//                    "Product " + i,                 // name
+//                    quantity,                       // quantity
+//                    Math.round(price * 100.0) / 100.0, // làm tròn 2 chữ số sau dấu phẩy
+//                    randomCategory.getId(),         // cate_id
+//                    "Description for product " + i  // description
+//            );
+//
+//            addProduct(p);
+//        }
+//    }
 }

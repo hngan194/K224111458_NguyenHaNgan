@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     TextView txtCustomer;
     ImageView imgCategory;
     TextView txtCategory;
+    TextView txtProduct;
+    ImageView imgProduct;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         txtEmployee=findViewById(R.id.txtCustomer);
         imgCustomer=findViewById(R.id.imgCustomer);
         txtCustomer=findViewById(R.id.txtCustomer);
+        imgProduct=findViewById(R.id.imgProduct);
+        txtProduct=findViewById(R.id.txtProduct);
     }
 
     public void open_employee_management(View view) {
@@ -48,10 +52,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent= new Intent(MainActivity.this, CustomerManagementActivity.class);;
         startActivity(intent);
     }
-    public void open_category_management(View view) {
-        Intent intent= new Intent(MainActivity.this, CategoryManagementActivity.class);;
-        startActivity(intent);
-    }
+//    public void open_category_management(View view) {
+//        Intent intent= new Intent(MainActivity.this, CategoryManagementActivity.class);;
+//        startActivity(intent);
+//    }
     public void open_product_management(View view) {
         Intent intent= new Intent(MainActivity.this, ProductManagementActivity.class);;
         startActivity(intent);
