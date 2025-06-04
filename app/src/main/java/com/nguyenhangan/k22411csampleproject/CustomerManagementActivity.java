@@ -13,13 +13,16 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.nguyenhangan.k22411csampleproject.connectors.CustomerConnector;
+import com.nguyenhangan.k22411csampleproject.connectors.SQLiteConnector;
 import com.nguyenhangan.k22411csampleproject.models.Customer;
+import com.nguyenhangan.k22411csampleproject.models.ListCustomer;
 
 public class CustomerManagementActivity extends AppCompatActivity {
     ListView lvCustomer;
@@ -40,21 +43,23 @@ public class CustomerManagementActivity extends AppCompatActivity {
     }
 
     private void addEvents() {
-//        lvCustomer.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-//            @Override
-//            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+        lvCustomer.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
 //                Customer selected=adapter.getItem(i);
 //                adapter.remove(selected);
-//                return false;
-//            }
-//        });
-        lvCustomer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Customer c=adapter.getItem(i);
                 displayCustomerDetailActivity(c);
+                return false;
             }
         });
+//        lvCustomer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Customer c=adapter.getItem(i);
+//                displayCustomerDetailActivity(c);
+//            }
+//        });
     }
 
     private void displayCustomerDetailActivity(Customer c) {
@@ -69,7 +74,8 @@ public class CustomerManagementActivity extends AppCompatActivity {
                 android.R.layout.simple_list_item_1
         );
         connector=new CustomerConnector();
-        adapter.addAll(connector.get_all_customers());
+        ListCustomer lc=connector.getAllCustomers(new SQLiteConnector(this).openDatabase());
+        adapter.addAll(lc.getCustomers());
         lvCustomer.setAdapter(adapter);
     }
 
@@ -88,7 +94,9 @@ public class CustomerManagementActivity extends AppCompatActivity {
                     "Mở màn hình thêm mới khách hàng",
                     Toast.LENGTH_LONG).show();
             Intent intent=new Intent(CustomerManagementActivity.this, CustomerDetailActivity.class);
-            startActivity(intent);
+            //đóng gói và đặt mã request code là 300
+            startActivityForResult(intent,300);
+//            startActivity(intent);
         }
         else if (item.getItemId()==R.id.menu_broadcast_advertising)
         {
@@ -103,5 +111,31 @@ public class CustomerManagementActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        //Trường hợp xử lý cho NEW_CUSTOMER ta chỉ quan tâm 300 và 500 do ta định nghĩa
+        if (requestCode==300 && resultCode==500)
+        {
+            //Lấy gói tin ra:
+            Customer c =(Customer) data.getSerializableExtra("NEW_CUSTOMER");
+            process_save_customer(c);
+        }
+    }
+
+    private void process_save_customer(Customer c) {
+        boolean result= connector.isExit(c);
+        if(result==true)
+        {
+            //Đã tồn tại nhưng muốn sửa các thông tin khác, sinh viên tự xử lý.
+        }
+        else
+        {
+            connector.addCustomer(c);
+            adapter.clear();
+            adapter.addAll(connector.get_all_customers());
+        }
     }
 }

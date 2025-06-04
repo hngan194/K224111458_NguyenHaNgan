@@ -54,4 +54,7 @@
     <string name="title_product_description">Product Description:</string>
     <string name="title_product_image_id">Image ID:</string>
     <string name="title_add">Add</string>
+    <string name="title_advanced_product">Advanced Product</string>
+    <string name="title_paymentmethod">Payment Method</string>
+    <string name="title_order">Order</string>
 </resources>
