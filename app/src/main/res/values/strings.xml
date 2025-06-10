@@ -57,4 +57,13 @@
     <string name="title_advanced_product">Advanced Product</string>
     <string name="title_paymentmethod">Payment Method</string>
     <string name="title_order">Order</string>
+    <string name="title_ProductId">Product ID</string>
+    <string name="title_ProductName">Product Name</string>
+    <string name="title_Price">Price</string>
+    <string name="title_quantity">Quantity</string>
+    <string name="title_employeeName">Employee Name</string>
+    <string name="title_CstomerName">Customer Name:</string>
+    <string name="title_discount">Discount:</string>
+    <string name="title_VAT">VAT:</string>
+    <string name="title_totalvalue">Total Value:</string>
 </resources>

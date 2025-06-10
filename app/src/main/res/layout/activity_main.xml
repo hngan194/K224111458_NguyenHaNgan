@@ -152,14 +152,14 @@
                     android:id="@+id/imgOrder"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="open_product_management"
+                    android:onClick="open_order_viewer"
                     app:srcCompat="@mipmap/ic_order" />
 
                 <TextView
                     android:id="@+id/txtOrder"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="open_product_management"
+                    android:onClick="open_order_viewer"
                     android:text="@string/title_order"
                     android:textAlignment="center"
                     android:textSize="24sp" />

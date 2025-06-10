@@ -74,4 +74,7 @@ public class OrderDetails {
         return TotalValue;
     }
 
+    public void setTotalValue(double totalValue) {
+        TotalValue = totalValue;
+    }
 }

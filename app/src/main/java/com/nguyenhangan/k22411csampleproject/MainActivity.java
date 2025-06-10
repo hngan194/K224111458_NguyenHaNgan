@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void addView() {
         imgEmployee=findViewById(R.id.imgEmployee);
-        txtEmployee=findViewById(R.id.txtCustomer);
+        txtEmployee=findViewById(R.id.txtEmployee);
         imgCustomer=findViewById(R.id.imgCustomer);
         txtCustomer=findViewById(R.id.txtCustomer);
         imgProduct=findViewById(R.id.imgProduct);
@@ -75,6 +75,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void open_advanced_product_management(View view) {
         Intent intent= new Intent(MainActivity.this, AdvancedProductManagementActivity.class);
+        startActivity(intent);
+    }
+
+    public void open_order_viewer(View view) {
+        Intent intent= new Intent(MainActivity.this, OrderViewActivity.class);
         startActivity(intent);
     }
 
