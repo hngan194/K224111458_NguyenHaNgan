@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     ImageView imgOrder;
     TextView txtPaymentMethod;
     TextView txtOrder;
+    ImageView imgTelephony;
+    TextView txtTelephony;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         txtPaymentMethod=findViewById(R.id.txtPaymentMethod);
         imgOrder=findViewById(R.id.imgOrder);
         txtOrder=findViewById(R.id.txtOrder);
+        imgTelephony=findViewById(R.id.imgTelephony);
+        txtTelephony=findViewById(R.id.txtTelephony);
     }
 
     public void open_employee_management(View view) {
@@ -80,6 +84,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void open_order_viewer(View view) {
         Intent intent= new Intent(MainActivity.this, OrderViewActivity.class);
+        startActivity(intent);
+    }
+
+    public void open_telephony(View view) {
+        Intent intent= new Intent(MainActivity.this, TelephonyActivity.class);
         startActivity(intent);
     }
 

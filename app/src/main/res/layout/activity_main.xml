@@ -8,162 +8,195 @@
     android:orientation="vertical"
     tools:context=".MainActivity" >
 
-    <TableLayout
-        android:stretchColumns="*"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TableRow
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >>
+            android:layout_height="wrap_content"
+            android:stretchColumns="*">
 
-            <LinearLayout
-                android:layout_width="132dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:onClick="open_employee_management"
-                    android:id="@+id/imgEmployee"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:srcCompat="@mipmap/ic_employee" />
-
-                <TextView
-                    android:id="@+id/txtEmployee"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="open_employee_management"
-                    android:text="@string/title_employee"
-                    android:textAlignment="center"
-                    android:textSize="24sp" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="132dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:onClick="open_customer_management"
-                    android:id="@+id/imgCustomer"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:srcCompat="@mipmap/ic_customer" />
-
-                <TextView
-                    android:id="@+id/txtCustomer"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="open_customer_management"
-                    android:text="@string/title_customer"
-                    android:textAlignment="center"
-                    android:textSize="24sp" />
-            </LinearLayout>
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <LinearLayout
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="match_parent">>
 
-                <ImageView
-                    android:onClick="open_advanced_product_management"
-                    android:id="@+id/imgAdvancedProduct"
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="132dp"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@mipmap/ic_category" />
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/txtAdvancedProduct"
-                    android:layout_width="match_parent"
+                    <ImageView
+                        android:id="@+id/imgEmployee"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="open_employee_management"
+                        app:srcCompat="@mipmap/ic_employee" />
+
+                    <TextView
+                        android:id="@+id/txtEmployee"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="open_employee_management"
+                        android:text="@string/title_employee"
+                        android:textAlignment="center"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="132dp"
                     android:layout_height="wrap_content"
-                    android:onClick="open_advanced_product_management"
-                    android:text="@string/title_advanced_product"
-                    android:textAlignment="center"
-                    android:textSize="24sp" />
-            </LinearLayout>
+                    android:orientation="vertical">
 
-            <LinearLayout
+                    <ImageView
+                        android:id="@+id/imgCustomer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="open_customer_management"
+                        app:srcCompat="@mipmap/ic_customer" />
+
+                    <TextView
+                        android:id="@+id/txtCustomer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="open_customer_management"
+                        android:text="@string/title_customer"
+                        android:textAlignment="center"
+                        android:textSize="24sp" />
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="match_parent">
 
-                <ImageView
-                    android:onClick="open_product_management"
-                    android:id="@+id/imgProduct"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@mipmap/ic_product" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:onClick="open_product_management"
-                    android:id="@+id/txtProduct"
+                    <ImageView
+                        android:id="@+id/imgAdvancedProduct"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="open_advanced_product_management"
+                        app:srcCompat="@mipmap/ic_category" />
+
+                    <TextView
+                        android:id="@+id/txtAdvancedProduct"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="open_advanced_product_management"
+                        android:text="@string/title_advanced_product"
+                        android:textAlignment="center"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/title_product"
-                    android:textAlignment="center"
-                    android:textSize="24sp" />
-            </LinearLayout>
-        </TableRow>
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+                    <ImageView
+                        android:id="@+id/imgProduct"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="open_product_management"
+                        app:srcCompat="@mipmap/ic_product" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-            <LinearLayout
+                    <TextView
+                        android:id="@+id/txtProduct"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="open_product_management"
+                        android:text="@string/title_product"
+                        android:textAlignment="center"
+                        android:textSize="24sp" />
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="match_parent">
 
-                <ImageView
-                    android:id="@+id/imgPaymentMethod"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:onClick="open_payment_method"
-                    app:srcCompat="@mipmap/ic_paymentmethod" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/txtPaymentMethod"
+                    <ImageView
+                        android:id="@+id/imgPaymentMethod"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="open_payment_method"
+                        app:srcCompat="@mipmap/ic_paymentmethod" />
+
+                    <TextView
+                        android:id="@+id/txtPaymentMethod"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="open_payment_method"
+                        android:text="@string/title_paymentmethod"
+                        android:textAlignment="center"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:onClick="open_payment_method"
-                    android:text="@string/title_paymentmethod"
-                    android:textAlignment="center"
-                    android:textSize="24sp" />
-            </LinearLayout>
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-            <LinearLayout
+                    <ImageView
+                        android:id="@+id/imgOrder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="open_order_viewer"
+                        app:srcCompat="@mipmap/ic_order" />
+
+                    <TextView
+                        android:id="@+id/txtOrder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="open_order_viewer"
+                        android:text="@string/title_order"
+                        android:textAlignment="center"
+                        android:textSize="24sp" />
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="match_parent">
 
-                <ImageView
-                    android:id="@+id/imgOrder"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:onClick="open_order_viewer"
-                    app:srcCompat="@mipmap/ic_order" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/txtOrder"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:onClick="open_order_viewer"
-                    android:text="@string/title_order"
-                    android:textAlignment="center"
-                    android:textSize="24sp" />
-            </LinearLayout>
-        </TableRow>
-    </TableLayout>
+                    <ImageView
+                        android:id="@+id/imgTelephony"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="open_telephony"
+                        app:srcCompat="@mipmap/ic_contact" />
+
+                    <TextView
+                        android:id="@+id/txtTelephony"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="open_telephony"
+                        android:text="@string/title_contact"
+                        android:textAlignment="center"
+                        android:textSize="24sp" />
+                </LinearLayout>
+            </TableRow>
+
+
+        </TableLayout>
+    </ScrollView>
+
 </LinearLayout>

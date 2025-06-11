@@ -66,4 +66,5 @@
     <string name="title_discount">Discount:</string>
     <string name="title_VAT">VAT:</string>
     <string name="title_totalvalue">Total Value:</string>
+    <string name="title_contact">Contact</string>
 </resources>
