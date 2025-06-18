@@ -67,4 +67,8 @@
     <string name="title_VAT">VAT:</string>
     <string name="title_totalvalue">Total Value:</string>
     <string name="title_contact">Contact</string>
+    <string name="title_contact_name">"Contact Name: "</string>
+    <string name="title_phone_number">Phone Number:</string>
+    <string name="title_body">Body:</string>
+    <string name="title_all">All</string>
 </resources>

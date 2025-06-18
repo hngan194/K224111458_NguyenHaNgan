@@ -1,14 +1,22 @@
 package com.nguyenhangan.k22411csampleproject;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -35,6 +43,9 @@ public class LoginActivity extends AppCompatActivity {
     String DATABASE_NAME="SalesDatabase.db";
     private static final String DB_PATH_SUFFIX = "/databases/";
     SQLiteDatabase database=null;
+    BroadcastReceiver networkReceiver=null;
+    Button btnLogin;
+    TextView txtNetworkType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,12 +59,43 @@ public class LoginActivity extends AppCompatActivity {
             return insets;
         });
         processCopy();
+        setupBroadcastReceiver();
+    }
+
+    private void setupBroadcastReceiver() {
+        networkReceiver=new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+
+                if (networkInfo != null && networkInfo.isConnected()) {
+                    btnLogin.setVisibility(View.VISIBLE);
+
+                    // Kiểm tra loại mạng và đổi màu textview
+                    if (networkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
+                        txtNetworkType.setTextColor(Color.BLUE); // Hoặc Color.parseColor("#0000FF")
+                        txtNetworkType.setText("Đang kết nối WiFi");
+                    } else if (networkInfo.getType() == ConnectivityManager.TYPE_MOBILE) {
+                        txtNetworkType.setTextColor(Color.YELLOW); // Hoặc Color.parseColor("#FFFF00")
+                        txtNetworkType.setText("Đang kết nối 4G");
+                    }
+                } else {
+                    btnLogin.setVisibility(View.INVISIBLE);
+                    txtNetworkType.setTextColor(Color.RED); // Hoặc Color.parseColor("#FF0000")
+                    txtNetworkType.setText("Không có kết nối Internet");
+                }
+            }
+
+        };
     }
 
     private void addViews() {
         edtUserName=findViewById(R.id.edtUserName);
         edtPassword=findViewById(R.id.edtPassword);
         chkSaveLogin=findViewById(R.id.chkSaveLoginInfor);
+        btnLogin=findViewById(R.id.btnLogin);
+        txtNetworkType=findViewById(R.id.txtNetworkType);
     }
 
     public void do_login(View view) {
@@ -134,6 +176,10 @@ public class LoginActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         saveLoginInformation();
+        if(networkReceiver!=null)
+        {
+            unregisterReceiver(networkReceiver);
+        }
     }
     public void restoreLoginInformation()
     {
@@ -153,6 +199,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         restoreLoginInformation();
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkReceiver, filter);
     }
     private void processCopy() {
         //private app

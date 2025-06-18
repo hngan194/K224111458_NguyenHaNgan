@@ -2,7 +2,9 @@ package com.nguyenhangan.k22411csampleproject.models;
 
 import androidx.annotation.NonNull;
 
-public class TelephonyInfor {
+import java.io.Serializable;
+
+public class TelephonyInfor implements Serializable {
     private String name;
     private String phone;
 
