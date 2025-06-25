@@ -71,4 +71,11 @@
     <string name="title_phone_number">Phone Number:</string>
     <string name="title_body">Body:</string>
     <string name="title_all">All</string>
+    <string name="title_MultiThreading">Multi-Threading</string>
+    <string name="title_handler_send_message">Handler Send Message</string>
+    <string name="title_handler_post_message">Handler Post Message</string>
+    <string name="title_asynctask">Asynctask</string>
+    <string name="txt_draw">Draw</string>
+    <string name="title_number_customer">Number of Customer:</string>
+    <string name="title_load_customer">Load Customer</string>
 </resources>

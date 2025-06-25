@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     TextView txtOrder;
     ImageView imgTelephony;
     TextView txtTelephony;
+    ImageView imgMultiThreading;
+    TextView txtMultiThreading;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
         txtOrder=findViewById(R.id.txtOrder);
         imgTelephony=findViewById(R.id.imgTelephony);
         txtTelephony=findViewById(R.id.txtTelephony);
+        imgMultiThreading=findViewById(R.id.imgMultiThreading);
+        txtMultiThreading=findViewById(R.id.txtMultiThreading);
+
     }
 
     public void open_employee_management(View view) {
@@ -89,6 +94,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void open_telephony(View view) {
         Intent intent= new Intent(MainActivity.this, TelephonyActivity.class);
+        startActivity(intent);
+    }
+
+    public void open_MultiThreading(View view) {
+        Intent intent= new Intent(MainActivity.this, MultiThreadingCategoriesActivity.class);
         startActivity(intent);
     }
 
